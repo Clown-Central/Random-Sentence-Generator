@@ -199,11 +199,10 @@ public class SentenceBuilder
     if(Math.random()*100>15)
     {
       if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
-      else phrase+=art;
+      else phrase+=art.toString();
       //ADJECTIVES WILL GO HERE
-      System.out.println(phrase + " " + n);
-
-      return new Word(phrase+" "+n);
+      System.out.println(phrase + " " + n.toString());
+      return new Word(phrase+" "+n.toString());
     }
     else
     {
@@ -247,6 +246,7 @@ public class SentenceBuilder
     if (v.toString().equals("frown"))result+=" at";
     if (v.toString().equals("speak")||v.toString().equals("respond"))result+=" to";
     //add "account for", but also fix the thing in the sentence generator that checks for a two letter word.
+          System.out.println(result);
     return new Word(result);//change to linked list
   }//returns complete, conjugated verb
 

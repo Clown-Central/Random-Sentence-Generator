@@ -7,15 +7,15 @@ public class UsefulMethods
 {
 
   /*
-  Description: Returns the input from a given file as an LinkedList
+  Description: Returns the input from a given file as an ArrayList
   *Pre: String file
   *Param: String file
   *Post: None
-  *Return: LinkedList<Word> info
+  *Return: ArrayList<Word> info
   */
-  public static LinkedList<Word> readFile(String file, String type)
+  public static ArrayList<Word> readFile(String file, String type)
   {
-    LinkedList<Word> info = new LinkedList<Word>();
+    ArrayList<Word> info = new ArrayList<Word>();
     
     try{
       Scanner fileReader = new Scanner(new File(file));
@@ -33,12 +33,12 @@ public class UsefulMethods
 
   /*
   Description: Gets word from file
-  *Pre: LinkedList<Word> list
-  *Param: LinkedList<Word> list
+  *Pre: ArrayList<Word> list
+  *Param: ArrayList<Word> list
   *Post: None
   *Return: String word
   */
-  public static Word getWord(LinkedList<Word> list)
+  public static Word getWord(ArrayList<Word> list)
   {
     try
     { 
@@ -46,7 +46,7 @@ public class UsefulMethods
     }
     catch(NullPointerException e)
     {
-      return new Word("n/a","n/a");
+      return new Word("n/a");
     }//ends catch
   }//ends getNoun() method
 

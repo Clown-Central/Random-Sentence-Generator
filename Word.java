@@ -1,31 +1,23 @@
-public class Word
+public /*abstract*/ class Word
 {
-  public String word;//make a setter later
-  private String type;
+  private String word;
 
-  /*
-  Description: Word constructor
-  *Pre: String word, String type
-  *Param: String word, String type
-  *Post: None
-  *Return: None
-  */
+  /* Description: Word constructor
+   *@pre: String word, String type
+   *@param: String word, String type
+   */
   public Word(String word, String type)
   {
     this.word = word;
-    this.type = type;
   }//ends constructor 2 parameters
 
-  /*
-  Description: Word constructor
-  *Pre: String type
-  *Param: String type
-  *Post: None
-  *Return: None
-  */
+  /* Description: Word constructor
+   * @pre String type
+   * @param String type
+   */
   public Word(String type)
   {
-    this.type = type;
+    /*this.type = type;
     switch (type)
     {
       case "adjective":
@@ -48,19 +40,13 @@ public class Word
         break;
       default:
         System.out.println("Error in Word class");
-    }//ends switch
+    }//ends switch*/
   }//ends contructor 1 parameters
 
-  /*
-  Description: Converts word toString
-  *Pre: None
-  *Param: None
-  *Post: None
-  *Return: String word
-  */
-  public String toString()
-  {
-    return word;
-  }//ends toString
+  /* Description: Converts word toString
+   * @return String word
+   */
+  public String toString(){
+    return word;}//ends toString
   
 }//ends word class

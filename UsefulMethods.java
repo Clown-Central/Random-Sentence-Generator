@@ -19,7 +19,9 @@ public class UsefulMethods
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
       {
-        info.add(new Word(fileReader.next()));
+        String word = fileReader.next();
+        System.out.println(word);
+        info.add(new Word(word));
       }//ends while
       fileReader.close();
       System.out.println("words loaded from "+file+"\n"+info);

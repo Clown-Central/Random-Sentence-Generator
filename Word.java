@@ -30,6 +30,6 @@ public class Word
     return (this.toString()).equals(str);}
 
   public boolean equals(Word other){
-    return (this.toString()).equals(other.toString();}
+    return (this.toString()).equals(other.toString());}
 
 }//ends word class

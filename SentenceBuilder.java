@@ -76,9 +76,9 @@ public class SentenceBuilder
     LinkedList<Word> sentence = new LinkedList<Word>();
     sentence.add(getSubject());
     Verb verb = Verb.getNew();
-    System.out.println(verb.toString());
+    //System.out.println(verb.toString());
     verb.conjugate();
-    System.out.println(verb.toString());
+    //System.out.println(verb.toString());
     sentence.add(verb);
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 

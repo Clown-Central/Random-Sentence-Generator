@@ -40,28 +40,29 @@ public class Verb extends Word
    * @pre int tense
    * @param int tense
    * @return String conjugated verb
-  */
-  public Verb conjugate()
+   */
+  public void conjugate()
   {
+    String temp = this.toString().substring(0,this.toString().length()-1);
     
-    String v = word.substring(0,word.length()-1);
-    if(word.substring(word.length()-1).equals("y" )&&(!word.equals("convey"))) 
-      v+="ies";
+    if(this.toString().substring(this.toString().length()-1).equals("y" )&&(!this.toString().equals("convey"))) 
+      temp+="ies";
     else 
     {
-      v+=word.substring(word.length()-1);
-      if(word.substring(word.length()-1).equals("s")) v+="es";
-      else if(word.substring(word.length()-1).equals("h")) v+="es";
-      else v+="s";
+      temp+=this.toString().substring(this.toString().length()-1);
+      if(this.toString().substring(this.toString().length()-1).equals("s")) temp+="es";
+      else if(this.toString().substring(this.toString().length()-1).equals("h")) temp+="es";
+      else temp+="s";
     }//ends else
     //ADVERBS HERE?
-    if (word.equals("frown"))v+=" at";
-    if (word.equals("speak")||word.equals("respond")||word.equals("listen"))v+=" to";
-    //if (word.equals("account"))v+=" for";
+    if (this.toString().equals("frown"))temp+=" at";
+    if (this.toString().equals("speak")||this.toString().equals("respond")||this.toString().equals("listen"))temp+=" to";
+    //if (this.toString().equals("account"))temp+=" for";
+    //if (this.toString().equals("communicate"))temp+=" with";
     //fix the thing in the sentence generator that checks for a two letter word.
-    word = v;
-    System.out.println(v);
-    return this;
+    
+    set(temp);
+    //return this;
   }//returns complete, conjugated verb
 
   /* Description: Gets word from file

@@ -1,19 +1,17 @@
 import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file
-//import java.io.FileWriter;//used to save file
 
 public class UsefulMethods
 {
 
-  /*
-  Description: Returns the input from a given file as an ArrayList
-  *Pre: String file
-  *Param: String file
-  *Post: None
-  *Return: ArrayList<Word> info
-  */
-  public static ArrayList<Word> readFile(String file, String type)
+  /* Description: Returns the input from a given 
+   * file as an ArrayList
+   * @pre String file
+   * @param String file
+   * @return ArrayList<Word> info
+   */
+  public static ArrayList<Word> readFile(String file)
   {
     ArrayList<Word> info = new ArrayList<Word>();
     
@@ -21,9 +19,10 @@ public class UsefulMethods
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
       {
-        info.add(new Word(fileReader.next(),type));
+        info.add(new Word(fileReader.next()));
       }//ends while
       fileReader.close();
+      System.out.println("words loaded from "+file+"\n"+info);
     }catch (IOException e){
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
@@ -36,16 +35,19 @@ public class UsefulMethods
   *Pre: ArrayList<Word> list
   *Param: ArrayList<Word> list
   *Post: None
-  *Return: String word
+  *Return: Word word
   */
   public static Word getWord(ArrayList<Word> list)
   {
     try
     { 
-      return list.get((int)(Math.random()*list.size()));
+      Word word = list.get((int)(Math.random()*list.size()));
+      System.out.println(word.toString());
+      return word;
     }
     catch(NullPointerException e)
     {
+      System.out.println("Problem: line 51 of UsefulMethods");
       return new Word("n/a");
     }//ends catch
   }//ends getNoun() method

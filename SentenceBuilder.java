@@ -1,24 +1,22 @@
 import java.util.*;
-/*import java.io.IOException;//for file issues
-import java.io.File;//used to read file
-import java.io.FileWriter;//used to save file*/
 
 public class SentenceBuilder
 {
-  public static ArrayList<Word> prepositionalPhrases;//not used yet
-  public static ArrayList<Word> conjunctions;//not used yet
+  //public static ArrayList<Word> prepositionalPhrases;
+  //public static ArrayList<Word> conjunctions;
   private static ArrayList<Word> nouns;
   private static ArrayList<Word> articles;
-  //private static ArrayList<Word> adjectives;//not used yet
+  //private static ArrayList<Word> adjectives;
   private static ArrayList<Word> verbs;
-  //private static ArrayList<Word> adverbs;//not used yet
+  //private static ArrayList<Word> adverbs;
   
-  public SentenceBuilder()
+  public static void prep()
   {
-    nouns = UsefulMethods.readFile("Word Bank/nouns.txt","noun");
-    articles = UsefulMethods.readFile("Word Bank/articles.txt","article");
+    //System.out.println("prep called");
+    nouns = UsefulMethods.readFile("Word Bank/nouns.txt");
+    articles = UsefulMethods.readFile("Word Bank/articles.txt");
     //adjectives = UsefulMethods.readFile("Word Bank/adjectives.txt","adjective");
-    verbs = UsefulMethods.readFile("Word Bank/verbs.txt","verb");
+    verbs = UsefulMethods.readFile("Word Bank/verbs.txt");
     //adverbs = UsefulMethods.readFile("Word Bank/adverbs.txt","adverb"); 
   }
 
@@ -198,8 +196,8 @@ public class SentenceBuilder
     String phrase = "";
     if(Math.random()*100>15)
     {
-      if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
-      else phrase+=art.toString();
+      /*if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
+      else*/ phrase+=art.toString();
       //ADJECTIVES WILL GO HERE
       System.out.println(phrase + " " + n.toString());
       return new Word(phrase+" "+n.toString());

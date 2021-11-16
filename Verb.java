@@ -41,7 +41,7 @@ public class Verb extends Word
    * @param int tense
    * @return String conjugated verb
    */
-  public void conjugate()
+  public Verb conjugate()
   {
     String temp = this.toString().substring(0,this.toString().length()-1);
     
@@ -62,7 +62,7 @@ public class Verb extends Word
     //fix the thing in the sentence generator that checks for a two letter word.
     
     set(temp);
-    //return this;
+    return this;
   }//returns complete, conjugated verb
 
   /* Description: Gets word from file

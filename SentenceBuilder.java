@@ -70,68 +70,21 @@ public class SentenceBuilder
     se.close();
     return tense;
   }//ends sentenceTense method
-
-
-
-  /*public static String getSentence()
-  {
-    String sentence = "";
-    sentence += Subject.getSubject()+" ";
-    sentence += VerbsAndAdverbs.conjugateVerb();
-    //sentence += VerbsAndAdverbs.conjugateVerb("convey");
-
-    if(sentence.substring(sentence.length()-3,sentence.length()-2).equals(" ") || Math.random()>0.1)sentence+=" "+Object.getObject();
-
-    return formatSentence(sentence);
-  }//builds a sentence*/
   
-
-
-
-  /* Description: Builds the actual sentence
-   * @return String formatSentence(sentence)
-   */
-  /*public static String getSentence()
-  {
-    String sentence = "";
-    sentence += Subject.getSubject()+" ";
-    sentence += VerbsAndAdverbs.conjugateVerb();
-    //sentence += VerbsAndAdverbs.conjugateVerb("convey");
-
-    if(sentence.substring(sentence.length()-3,sentence.length()-2).equals(" ") || Math.random()>0.1)sentence+=" "+Object.getObject();
-
-    return formatSentence(sentence);
-  }//builds a sentence
-  THIS IS THE VERSION WITHOUT A LINKED LIST*/
-
-
-
 /* Description: Builds the actual sentence
  * @return String formatSentence(sentence)
  */
   public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
-      //System.out.println(sentence);
     sentence.add(getSubject());
-      //System.out.println(sentence);
     sentence.add(conjugateVerb());
-      //System.out.println(sentence);
     //test.add((String)(VerbsAndAdverbs.conjugateVerb("convey")));
     
-    if(sentence.getLast().toString().length()<3 || Math.random()>0.1)
-    {
-      sentence.add(getObject());
-        //System.out.println(sentence);
-    }//ends if
+    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) sentence.add(getObject());
 
     return formatSentence(sentence);
   }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
-
-
-
-  /*private static String formatSentence(String s) {    
-    return s.substring(0,1).toUpperCase()+s.substring(1).toLowerCase()+".";}*/
 
   private static String formatSentence(LinkedList<Word> list)
   {    
@@ -141,36 +94,20 @@ public class SentenceBuilder
        s+=list.get(i)+" ";
     }
     return s.substring(0,1).toUpperCase()+s.substring(1,s.length()-1).toLowerCase()+".";
-
-    //list.getFirst();
-    //list.remove(0);
   }//ends formatSentence - puts a capital letter and a period
 
-
-
-
-
-
-
-
-
-
-
-
-    
-  
-  
   /* Description: gets Object
    * @return object
+   * CHANGE TO LINKEDLIST OF WORDS
    */
-  public static Word getObject()
+  private static Word getObject()
   {
     Word art = UsefulMethods.getWord(articles);
     Word n = UsefulMethods.getWord(nouns);
     String phrase = "";
     if(Math.random()*100>15)
     {
-      if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
+      if(art.equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
       else phrase+=art;
       //ADJECTIVES WILL GO HERE
       return new Word(phrase+" "+n);//FIX LATER - make linked list
@@ -178,14 +115,10 @@ public class SentenceBuilder
     else
     {
       return new Word("them");//randomized pronoun (from list?)
-      //To do: make conjugation match other possible pronouns (ex.   "they") and plural nouns
+      //To-do: make conjugation match other possible pronouns (ex. "they") and plural nouns
     }
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
 
-  
-  
-
-  
   /* Description: Gets the subject
    * @return String subject
    */
@@ -196,25 +129,16 @@ public class SentenceBuilder
     String phrase = "";
     if(Math.random()*100>15)
     {
-      if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
+      if(art.equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
       else phrase+=art.toString();
       //ADJECTIVES WILL GO HERE
-      //System.out.println(phrase + " " + n.toString());
       return new Word(phrase+" "+n.toString());
     }
     else
     {
       return new Word("it");//randomized pronoun (from list?)
-      //To do: make conjugation match other possible pronouns (ex.   "they") and plural nouns
     }
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
-
-
-
-
-
-  
-
    
   /* Description: Conjugates verb
    * @pre int tense
@@ -224,32 +148,21 @@ public class SentenceBuilder
   public static Word conjugateVerb(/*int tense*/)
   {
     Word v = UsefulMethods.getWord(verbs);
-    //v = new Word(v.toString().toLowerCase());
     String result = v.toString().substring(0,v.toString().length()-1);
-    if(v.toString().substring(v.toString().length()-1).equals("y")&& (!v.toString().equals("convey"))) result+="ies";
+    if(v.toString().substring(v.toString().length()-1).equals("y")&& (!v.equals("convey"))) result+="ies";
     else 
     {
       result+=v.toString().substring(v.toString().length()-1);
-      if(v.toString().substring(v.toString().length()-1).equals("s")) 
-      {
-        result+="es";
-      }
-      else if(v.toString().substring(v.toString().length()-1).equals("h"))
-      { 
-        result+="es";
-      }
+      if(v.toString().substring(v.toString().length()-1).equals("s")) result+="es";
+      else if(v.toString().substring(v.toString().length()-1).equals("h")) result+="es";
       else result+="s";
     }//ends else
     //ADVERBS and any other words that need to follow the verb (ex. "at" for the verb "looked at") WILL GO HERE
-    if (v.toString().equals("frown"))result+=" at";
-    if (v.toString().equals("speak")||v.toString().equals("respond"))result+=" to";
+    if (v.equals("frown"))result+=" at";
+    if (v.equals("speak")||v.equals("respond")||v.equals("listen"))result+=" to";
     //add "account for", but also fix the thing in the sentence generator that checks for a two letter word.
           //System.out.println(result);
     return new Word(result);//change to linked list
   }//returns complete, conjugated verb
-
-
-
-
 
 }//ends SentenceBuilder class 

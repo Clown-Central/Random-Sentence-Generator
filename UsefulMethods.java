@@ -30,38 +30,29 @@ public class UsefulMethods
     return info;
   }//ends readFile
 
-  /*
-  Description: Gets word from file
-  *Pre: ArrayList<Word> list
-  *Param: ArrayList<Word> list
-  *Post: None
-  *Return: Word word
-  */
+  /* Description: Gets word from file
+   * @pre ArrayList<Word> list
+   * @param ArrayList<Word> list
+   * @return Word word
+   */
   public static Word getWord(ArrayList<Word> list)
   {
     try
     { 
-      Word word = list.get((int)(Math.random()*list.size()));
-      //System.out.println(word.toString());
-      return word;
-    }
+      return list.get((int)(Math.random()*list.size()));
+    }//ends try
     catch(NullPointerException e)
     {
-      System.out.println("Problem: line 51 of UsefulMethods");
       return new Word("n/a");
     }//ends catch
   }//ends getNoun() method
 
-  /*
-  Description: Checks whether noun starts with a vowel.
-  *Pre: String str
-  *Param: String str
-  *Post: None
-  *Return: boolean vowel
-  */
-  public static boolean isVowel(String str)
-  {
-    return str.substring(0,1).toLowerCase().matches("[aeiou]");    
-  }//ends isVowel
+  /* Description: Checks whether noun starts with a vowel.
+   * @pre: String str
+   * @param: String str
+   * @return: boolean vowel
+   */
+  public static boolean isVowel(String str) {
+    return str.substring(0,1).toLowerCase().matches("[aeiou]");}//ends isVowel
 
 }//ends class

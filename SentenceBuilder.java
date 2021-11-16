@@ -112,17 +112,17 @@ public class SentenceBuilder
   public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
-      System.out.println(sentence);
+      //System.out.println(sentence);
     sentence.add(getSubject());
-      System.out.println(sentence);
+      //System.out.println(sentence);
     sentence.add(conjugateVerb());
-      System.out.println(sentence);
+      //System.out.println(sentence);
     //test.add((String)(VerbsAndAdverbs.conjugateVerb("convey")));
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1)
     {
       sentence.add(getObject());
-        System.out.println(sentence);
+        //System.out.println(sentence);
     }//ends if
 
     return formatSentence(sentence);
@@ -196,10 +196,10 @@ public class SentenceBuilder
     String phrase = "";
     if(Math.random()*100>15)
     {
-      /*if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
-      else*/ phrase+=art.toString();
+      if(art.toString().equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
+      else phrase+=art.toString();
       //ADJECTIVES WILL GO HERE
-      System.out.println(phrase + " " + n.toString());
+      //System.out.println(phrase + " " + n.toString());
       return new Word(phrase+" "+n.toString());
     }
     else
@@ -244,7 +244,7 @@ public class SentenceBuilder
     if (v.toString().equals("frown"))result+=" at";
     if (v.toString().equals("speak")||v.toString().equals("respond"))result+=" to";
     //add "account for", but also fix the thing in the sentence generator that checks for a two letter word.
-          System.out.println(result);
+          //System.out.println(result);
     return new Word(result);//change to linked list
   }//returns complete, conjugated verb
 

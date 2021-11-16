@@ -6,7 +6,7 @@ public /*abstract*/ class Word
    *@pre: String word, String type
    *@param: String word, String type
    */
-  public Word(String word, String type)
+  public Word(String word/*, String type*/)
   {
     this.word = word;
   }//ends constructor 2 parameters
@@ -15,7 +15,7 @@ public /*abstract*/ class Word
    * @pre String type
    * @param String type
    */
-  public Word(String type)
+  public Word(/*String type*/)
   {
     /*this.type = type;
     switch (type)

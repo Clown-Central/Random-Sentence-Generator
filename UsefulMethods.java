@@ -19,12 +19,10 @@ public class UsefulMethods
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
       {
-        String word = fileReader.next();
-        System.out.println(word);
-        info.add(new Word(word));
+        info.add(new Word(fileReader.next()));
       }//ends while
       fileReader.close();
-      System.out.println("words loaded from "+file+"\n"+info);
+      //System.out.println("words loaded from "+file);
     }catch (IOException e){
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
@@ -44,7 +42,7 @@ public class UsefulMethods
     try
     { 
       Word word = list.get((int)(Math.random()*list.size()));
-      System.out.println(word.toString());
+      //System.out.println(word.toString());
       return word;
     }
     catch(NullPointerException e)

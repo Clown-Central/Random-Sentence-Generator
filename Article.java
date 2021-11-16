@@ -2,26 +2,25 @@ import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file
 
-public class Noun extends Word
+public class Article extends Word
 {
+  public static ArrayList<Article> list = new ArrayList<Article>();
 
-  public static ArrayList<Noun> list = new ArrayList<Noun>();  
-
-  public Noun(String word)
+  public Article(String word)
   {
     super(word);
   }//ends constructor
 
-  private static final String file = "Word Bank/nouns.txt";
+  private static final String file = "Word Bank/articles.txt";
   
-  public static ArrayList<Noun> readFile(){
-    ArrayList<Noun> info = new ArrayList<Noun>();
+  public static ArrayList<Article> readFile(){
+    ArrayList<Article> info = new ArrayList<Article>();
     
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
       {
-        info.add(new Noun(fileReader.next()));
+        info.add(new Article(fileReader.next()));
       }//ends while
       fileReader.close();
       //System.out.println("words loaded from "+file);
@@ -37,10 +36,10 @@ public class Noun extends Word
    * @param ArrayList<Word> list
    * @return Word word
    */
-  public static Noun getNew()
+  public static Article getNew()
   {
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 
 
-}//ends Noun class
+}//ends Article class

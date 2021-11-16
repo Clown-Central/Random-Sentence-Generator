@@ -4,20 +4,17 @@ public class SentenceBuilder
 {
   //public static ArrayList<Word> prepositionalPhrases;
   //public static ArrayList<Word> conjunctions;
-  private static ArrayList<Word> nouns;
-  private static ArrayList<Word> articles;
   //private static ArrayList<Word> adjectives;
-  private static ArrayList<Word> verbs;
   //private static ArrayList<Word> adverbs;
   
   public static void prep()
   {
     //System.out.println("prep called");
-    nouns = UsefulMethods.readFile("Word Bank/nouns.txt");
-    articles = UsefulMethods.readFile("Word Bank/articles.txt");
-    //adjectives = UsefulMethods.readFile("Word Bank/adjectives.txt","adjective");
-    verbs = UsefulMethods.readFile("Word Bank/verbs.txt");
-    //adverbs = UsefulMethods.readFile("Word Bank/adverbs.txt","adverb"); 
+    Noun.list = Noun.readFile();
+    Article.list = Article.readFile();
+    //adjectives = Adjective.readFile();
+    Verb.list = Verb.readFile();
+    //adverbs = Adverbs.readFile(); 
   }
 
   /* Description: This is the independent clause
@@ -78,10 +75,14 @@ public class SentenceBuilder
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
     sentence.add(getSubject());
-    sentence.add(conjugateVerb());
-    //test.add((String)(VerbsAndAdverbs.conjugateVerb("convey")));
+    Verb verb = Verb.getNew();
+    //System.out.println(verb.toString());
+    verb.conjugate();
+    //System.out.println(verb.toString());
+    sentence.add(verb);
     
-    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) sentence.add(getObject());
+    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
+    sentence.add(getObject());
 
     return formatSentence(sentence);
   }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
@@ -102,8 +103,8 @@ public class SentenceBuilder
    */
   private static Word getObject()
   {
-    Word art = UsefulMethods.getWord(articles);
-    Word n = UsefulMethods.getWord(nouns);
+    Article art = Article.getNew();
+    Noun n = Noun.getNew();
     String phrase = "";
     if(Math.random()*100>15)
     {
@@ -124,8 +125,8 @@ public class SentenceBuilder
    */
   public static Word getSubject(/*String art, String n*/)
   {
-    Word art = UsefulMethods.getWord(articles);
-    Word n = UsefulMethods.getWord(nouns);
+    Article art = Article.getNew();
+    Noun n = Noun.getNew();
     String phrase = "";
     if(Math.random()*100>15)
     {
@@ -140,29 +141,4 @@ public class SentenceBuilder
     }
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
    
-  /* Description: Conjugates verb
-   * @pre int tense
-   * @param int tense
-   * @return String conjugated verb
-  */
-  public static Word conjugateVerb(/*int tense*/)
-  {
-    Word v = UsefulMethods.getWord(verbs);
-    String result = v.toString().substring(0,v.toString().length()-1);
-    if(v.toString().substring(v.toString().length()-1).equals("y")&& (!v.equals("convey"))) result+="ies";
-    else 
-    {
-      result+=v.toString().substring(v.toString().length()-1);
-      if(v.toString().substring(v.toString().length()-1).equals("s")) result+="es";
-      else if(v.toString().substring(v.toString().length()-1).equals("h")) result+="es";
-      else result+="s";
-    }//ends else
-    //ADVERBS and any other words that need to follow the verb (ex. "at" for the verb "looked at") WILL GO HERE
-    if (v.equals("frown"))result+=" at";
-    if (v.equals("speak")||v.equals("respond")||v.equals("listen"))result+=" to";
-    //add "account for", but also fix the thing in the sentence generator that checks for a two letter word.
-          //System.out.println(result);
-    return new Word(result);//change to linked list
-  }//returns complete, conjugated verb
-
 }//ends SentenceBuilder class 

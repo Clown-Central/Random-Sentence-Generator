@@ -10,7 +10,7 @@ public class UsefulMethods
    * @pre String file
    * @param String file
    * @return ArrayList<Word> info
-   */
+   *
   public static ArrayList<Word> readFile(String file)
   {
     ArrayList<Word> info = new ArrayList<Word>();
@@ -28,24 +28,7 @@ public class UsefulMethods
     }//ends catch file errors
 
     return info;
-  }//ends readFile
-
-  /* Description: Gets word from file
-   * @pre ArrayList<Word> list
-   * @param ArrayList<Word> list
-   * @return Word word
-   */
-  public static Word getWord(ArrayList<Word> list)
-  {
-    try
-    { 
-      return list.get((int)(Math.random()*list.size()));
-    }//ends try
-    catch(NullPointerException e)
-    {
-      return new Word("n/a");
-    }//ends catch
-  }//ends getNoun() method
+  }//ends readFile*/
 
   /* Description: Checks whether noun starts with a vowel.
    * @pre: String str

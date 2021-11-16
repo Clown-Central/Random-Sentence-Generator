@@ -5,6 +5,8 @@ import java.io.File;//used to read file
 public class Noun extends Word
 {
 
+  public static ArrayList<Noun> list = new ArrayList<Noun>();  
+
   public Noun(String word)
   {
     super(word);
@@ -12,8 +14,8 @@ public class Noun extends Word
 
   private static final String file = "Word Bank/nouns.txt";
   
-  public static ArrayList<Word> readFile(){
-    ArrayList<Word> info = new ArrayList<Word>();
+  public static ArrayList<Noun> readFile(){
+    ArrayList<Noun> info = new ArrayList<Noun>();
     
     try{
       Scanner fileReader = new Scanner(new File(file));
@@ -29,4 +31,16 @@ public class Noun extends Word
 
     return info;
   }//ends readFile
+
+  /* Description: Gets word from file
+   * @pre ArrayList<Word> list
+   * @param ArrayList<Word> list
+   * @return Word word
+   */
+  public static Noun getNew()
+  {
+    return list.get((int)(Math.random()*list.size()));
+  }//ends method
+
+
 }//ends Noun class

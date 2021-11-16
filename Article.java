@@ -4,6 +4,7 @@ import java.io.File;//used to read file
 
 public class Article extends Word
 {
+  public static ArrayList<Article> list = new ArrayList<Article>();
 
   public Article(String word)
   {
@@ -12,8 +13,8 @@ public class Article extends Word
 
   private static final String file = "Word Bank/articles.txt";
   
-  public static ArrayList<Word> readFile(){
-    ArrayList<Word> info = new ArrayList<Word>();
+  public static ArrayList<Article> readFile(){
+    ArrayList<Article> info = new ArrayList<Article>();
     
     try{
       Scanner fileReader = new Scanner(new File(file));
@@ -29,4 +30,16 @@ public class Article extends Word
 
     return info;
   }//ends readFile
+
+  /* Description: Gets word from file
+   * @pre ArrayList<Word> list
+   * @param ArrayList<Word> list
+   * @return Word word
+   */
+  public static Article getNew()
+  {
+    return list.get((int)(Math.random()*list.size()));
+  }//ends method
+
+
 }//ends Article class

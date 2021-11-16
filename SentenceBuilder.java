@@ -4,19 +4,16 @@ public class SentenceBuilder
 {
   //public static ArrayList<Word> prepositionalPhrases;
   //public static ArrayList<Word> conjunctions;
-  private static ArrayList<Word> nouns;
-  private static ArrayList<Word> articles;
   //private static ArrayList<Word> adjectives;
-  private static ArrayList<Word> verbs;
   //private static ArrayList<Word> adverbs;
   
   public static void prep()
   {
     //System.out.println("prep called");
-    nouns = Noun.readFile();
-    articles = Article.readFile();
+    Noun.list = Noun.readFile();
+    Article.list = Article.readFile();
     //adjectives = Adjective.readFile();
-    verbs = Verb.readFile();
+    Verb.list = Verb.readFile();
     //adverbs = Adverbs.readFile(); 
   }
 
@@ -78,10 +75,14 @@ public class SentenceBuilder
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
     sentence.add(getSubject());
-    sentence.add((Verb)(UsefulMethods.getWord(verbs)).conjugate());
-    //test.add((String)(VerbsAndAdverbs.conjugateVerb("convey")));
+    Verb verb = Verb.getNew();
+    System.out.println(verb.toString());
+    verb.conjugate();
+    System.out.println(verb.toString());
+    sentence.add(verb);
     
-    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) sentence.add(getObject());
+    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
+    sentence.add(getObject());
 
     return formatSentence(sentence);
   }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
@@ -102,8 +103,8 @@ public class SentenceBuilder
    */
   private static Word getObject()
   {
-    Word art = UsefulMethods.getWord(articles);
-    Word n = UsefulMethods.getWord(nouns);
+    Article art = Article.getNew();
+    Noun n = Noun.getNew();
     String phrase = "";
     if(Math.random()*100>15)
     {
@@ -124,8 +125,8 @@ public class SentenceBuilder
    */
   public static Word getSubject(/*String art, String n*/)
   {
-    Word art = UsefulMethods.getWord(articles);
-    Word n = UsefulMethods.getWord(nouns);
+    Article art = Article.getNew();
+    Noun n = Noun.getNew();
     String phrase = "";
     if(Math.random()*100>15)
     {

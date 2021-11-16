@@ -1,6 +1,8 @@
-public /*abstract*/ class Word
+public abstract class Word
 {
   private String word;
+
+  public static ArrayList<Word> readFile(){}
 
   /* Description: Word constructor
    * @pre String word, String type

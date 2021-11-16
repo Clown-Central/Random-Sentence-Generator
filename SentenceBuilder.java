@@ -14,7 +14,7 @@ public class SentenceBuilder
   {
     //System.out.println("prep called");
     nouns = UsefulMethods.readFile("Word Bank/nouns.txt");
-    articles = UsefulMethods.readFile("Word Bank/articles.txt");
+    articles = Article.readFile();
     //adjectives = UsefulMethods.readFile("Word Bank/adjectives.txt","adjective");
     verbs = UsefulMethods.readFile("Word Bank/verbs.txt");
     //adverbs = UsefulMethods.readFile("Word Bank/adverbs.txt","adverb"); 

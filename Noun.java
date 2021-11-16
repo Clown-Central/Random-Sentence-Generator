@@ -1,9 +1,10 @@
 public class Noun extends Word
 {
-  private String word;
+  public static void readFile(String file){}
+
 
   public Noun(String word)
   {
-    this.word = word;
+    super(word);
   }//ends noun constructor
 }//ends Noun class

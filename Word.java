@@ -1,8 +1,12 @@
-public abstract class Word
+import java.util.*;
+
+public class Word
 {
   private String word;
 
-  public static ArrayList<Word> readFile(){}
+  public static ArrayList<Word> readFile(){
+    return new ArrayList<Word>();
+  }
 
   /* Description: Word constructor
    * @pre String word, String type

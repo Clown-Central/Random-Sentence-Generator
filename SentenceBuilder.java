@@ -13,11 +13,11 @@ public class SentenceBuilder
   public static void prep()
   {
     //System.out.println("prep called");
-    nouns = UsefulMethods.readFile("Word Bank/nouns.txt");
+    nouns = Noun.readFile();
     articles = Article.readFile();
-    //adjectives = UsefulMethods.readFile("Word Bank/adjectives.txt","adjective");
-    verbs = UsefulMethods.readFile("Word Bank/verbs.txt");
-    //adverbs = UsefulMethods.readFile("Word Bank/adverbs.txt","adverb"); 
+    //adjectives = Adjective.readFile();
+    verbs = Verb.readFile();
+    //adverbs = Adverbs.readFile(); 
   }
 
   /* Description: This is the independent clause
@@ -78,7 +78,7 @@ public class SentenceBuilder
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
     sentence.add(getSubject());
-    sentence.add(conjugateVerb());
+    sentence.add((Verb)(UsefulMethods.getWord(verbs)).conjugate());
     //test.add((String)(VerbsAndAdverbs.conjugateVerb("convey")));
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1) sentence.add(getObject());
@@ -140,29 +140,4 @@ public class SentenceBuilder
     }
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
    
-  /* Description: Conjugates verb
-   * @pre int tense
-   * @param int tense
-   * @return String conjugated verb
-  */
-  public static Word conjugateVerb(/*int tense*/)
-  {
-    Word v = UsefulMethods.getWord(verbs);
-    String result = v.toString().substring(0,v.toString().length()-1);
-    if(v.toString().substring(v.toString().length()-1).equals("y")&& (!v.equals("convey"))) result+="ies";
-    else 
-    {
-      result+=v.toString().substring(v.toString().length()-1);
-      if(v.toString().substring(v.toString().length()-1).equals("s")) result+="es";
-      else if(v.toString().substring(v.toString().length()-1).equals("h")) result+="es";
-      else result+="s";
-    }//ends else
-    //ADVERBS and any other words that need to follow the verb (ex. "at" for the verb "looked at") WILL GO HERE
-    if (v.equals("frown"))result+=" at";
-    if (v.equals("speak")||v.equals("respond")||v.equals("listen"))result+=" to";
-    //add "account for", but also fix the thing in the sentence generator that checks for a two letter word.
-          //System.out.println(result);
-    return new Word(result);//change to linked list
-  }//returns complete, conjugated verb
-
 }//ends SentenceBuilder class 

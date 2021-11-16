@@ -4,6 +4,12 @@ import java.io.File;//used to read file
 
 public class Article extends Word
 {
+
+  public Article(String word)
+  {
+    super(word);
+  }//ends constructor
+
   private static final String file = "Word Bank/articles.txt";
   
   public static ArrayList<Word> readFile(){
@@ -22,27 +28,5 @@ public class Article extends Word
     }//ends catch file errors
 
     return info;
-  }
-
-
-
-
-
-public static  readFile(String file)
-  {
-    
   }//ends readFile
-
-
-
-
-
-
-
-
-
-  public Article(String word)
-  {
-    super(word);
-  }//ends constructor
 }//ends Article class

@@ -4,6 +4,7 @@ import java.io.File;//used to read file
 
 public class Article extends Word
 {
+  
   private static final String file = "Word Bank/articles.txt";
   private static ArrayList<Article> list = new ArrayList<Article>();
 

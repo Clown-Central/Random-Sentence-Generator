@@ -36,24 +36,17 @@ public class Article extends Word
 
 
   /* Description: Reads File
-   * @pre: none
-   * @param: none
-   * @return: none
-  */
+   * @post: list now contains words from word bank
+   */
   private static void readFile(){
-    try
-      {
-        Scanner fileReader = new Scanner(new File(file));
-        while(fileReader.hasNext())
-          {
-            list.add(new Article(fileReader.next()));
-          }//ends while loop
-        fileReader.close();
-        //System.out.println("words loaded from "+file);
-      }
-    catch (IOException e)
-      {
-        System.out.println("Something's wrong with the file.");
-      }//ends catch file errors
-  }//ends readFile method
+    try{
+      Scanner fileReader = new Scanner(new File(file));
+      while(fileReader.hasNext())
+        list.add(new Article(fileReader.next()));
+      fileReader.close();
+    }catch (IOException e){
+      System.out.println("Something's wrong with the file.");
+    }//ends catch file errors
+  }//ends readFile
+
 }//ends Article class

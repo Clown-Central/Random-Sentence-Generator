@@ -71,27 +71,17 @@ public class Verb extends Word
 
 
   /* Description: Readsfile
-   * @pre: none
-   * @param: none
-   * @return: none
+   * @post: list now contains words from word bank
   */
   private static void readFile(){
-    ArrayList<Verb> info = new ArrayList<Verb>();
-    
-    try
-      {
-        Scanner fileReader = new Scanner(new File(file));
-        while(fileReader.hasNext())
-          {
-            info.add(new Verb(fileReader.next()));
-          }//ends while
-        fileReader.close();
-        //System.out.println("words loaded from "+file);
-      }
-    catch (IOException e)
-      {
-        System.out.println("Something's wrong with the file.");
-      }//ends catch file errors
-    list=info;
+    try{
+      Scanner fileReader = new Scanner(new File(file));
+      while(fileReader.hasNext())
+        list.add(new Verb(fileReader.next()));
+      fileReader.close();
+    }catch (IOException e){
+      System.out.println("Something's wrong with the file.");
+    }//ends catch file errors
+
   }//ends readFile
 }//ends Verb class

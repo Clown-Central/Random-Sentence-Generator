@@ -46,30 +46,20 @@ public class Noun extends Word
   }//ends isVowel method
 
 
-  
-  /* Description: Read file
-   * @pre: none
-   * @param: none
-   * @return: none
-  */
-  private static void readFile()
-  {
-    ArrayList<Noun> info = new ArrayList<Noun>();
+
     
-    try
-      {
-        Scanner fileReader = new Scanner(new File(file));
-        while(fileReader.hasNext())
-          {
-            info.add(new Noun(fileReader.next()));
-          }//ends while loop
-        fileReader.close();
-        //System.out.println("words loaded from "+file);
-      }
-    catch (IOException e)
-      {
-        System.out.println("Something's wrong with the file.");
-      }//ends catch file errors
-    list = info;
-  }//ends readFile method
+  /* Description: Read file
+   * @post: list now contains words from word bank
+  */
+  private static void readFile(){
+    try{
+      Scanner fileReader = new Scanner(new File(file));
+      while(fileReader.hasNext())
+        list.add(new Noun(fileReader.next()));
+      fileReader.close();
+    }catch (IOException e){
+      System.out.println("Something's wrong with the file.");
+    }//ends catch file errors
+  }//ends readFile
+
 }//ends Noun class

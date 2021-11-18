@@ -2,11 +2,6 @@ import java.util.*;
 
 public class SentenceBuilder
 {
-  //public static ArrayList<Word> prepositionalPhrases;
-  //public static ArrayList<Word> conjunctions;
-  //private static ArrayList<Word> adjectives;
-  //private static ArrayList<Word> adverbs;
-
   /* Description: This is the independent clause
    * @return String independentClause
    *
@@ -28,7 +23,7 @@ public class SentenceBuilder
   /* Description: User chooses the tense to which they want their 
    * sentence to be in.
    * @return int tense
-   */
+   *
   public static int sentenceTense()
   {
     Scanner se = new Scanner(System.in);
@@ -89,7 +84,7 @@ public class SentenceBuilder
   public static LinkedList<Word> getThing(String type)
   {
     LinkedList<Word> output = new LinkedList<Word>();
-    if(Math.random()*100>15)//get object or use pronoun
+    if(Math.random()*100>5)//get object or use pronoun
     {
       Article art = Article.getNew();
       output.add(Noun.getNew());

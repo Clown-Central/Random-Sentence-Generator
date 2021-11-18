@@ -10,6 +10,11 @@ public class Verb extends Word
 
 
 
+  /* Description: Verb constructor
+   * @pre: String word
+   * @param: String Word
+   * @return: None
+  */
   public Verb(String word)
   {
     super(word);
@@ -19,22 +24,22 @@ public class Verb extends Word
 
 
   /* Description: Gets word from file
-   * @pre ArrayList<Word> list
-   * @param ArrayList<Word> list
-   * @return Word word
-   */
+   * @pre: none
+   * @param: none
+   * @return: Word from article file
+  */
   public static Verb getNew()
   {
     if(list.size()==0) readFile();
-    return list.get((int)(Math.random()*list.size()));
+      return list.get((int)(Math.random()*list.size()));
   }//ends method
   
   
-  
+
   /* Description: Conjugates verb
-   * @pre int tense
-   * @param int tense
-   * @return String conjugated verb
+   * @pre: none
+   * @param int: none
+   * @return: Verb
    */
   public Verb conjugate()
   {
@@ -48,7 +53,10 @@ public class Verb extends Word
       if(this.toString().substring(this.toString().length()-1).equals("s")) temp+="es";
       else if(this.toString().substring(this.toString().length()-1).equals("h")) temp+="es";
       else temp+="s";
-    }//ends else
+    }//ends else statement
+
+
+
     //ADVERBS HERE?
     if (this.toString().equals("frown"))temp+=" at";
     if (this.toString().equals("speak")||this.toString().equals("respond")||this.toString().equals("listen"))temp+=" to";
@@ -56,27 +64,34 @@ public class Verb extends Word
     //if (this.toString().equals("communicate"))temp+=" with";
     //fix the thing in the sentence generator that checks for a two letter word.
     
+
     return new Verb(temp);
   }//returns complete, conjugated verb
 
 
 
+  /* Description: Readsfile
+   * @pre: none
+   * @param: none
+   * @return: none
+  */
   private static void readFile(){
     ArrayList<Verb> info = new ArrayList<Verb>();
     
-    try{
-      Scanner fileReader = new Scanner(new File(file));
-      while(fileReader.hasNext())
+    try
       {
-        info.add(new Verb(fileReader.next()));
-      }//ends while
-      fileReader.close();
-      //System.out.println("words loaded from "+file);
-    }catch (IOException e){
-      System.out.println("Something's wrong with the file.");
-    }//ends catch file errors
-
+        Scanner fileReader = new Scanner(new File(file));
+        while(fileReader.hasNext())
+          {
+            info.add(new Verb(fileReader.next()));
+          }//ends while
+        fileReader.close();
+        //System.out.println("words loaded from "+file);
+      }
+    catch (IOException e)
+      {
+        System.out.println("Something's wrong with the file.");
+      }//ends catch file errors
     list=info;
   }//ends readFile
-
 }//ends Verb class

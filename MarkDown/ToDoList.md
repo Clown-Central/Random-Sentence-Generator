@@ -24,9 +24,9 @@ _**OR**_
 
 To Do's
 =
-* Break up Sentences into Dependent and Independent Clauses
+* Break up Sentences into dependent and independent clauses
 * Use conjunctions
-* Insert preprosistional phrases
+* Insert prepositional phrases
 * Insert adjectives
 * Insert adverbs
 
@@ -38,3 +38,4 @@ Pain
 * questions 
 * using verbs as nouns (gerunds)
 * parallel structure (ex. "he *runs* and *jumps*")
+* AI?

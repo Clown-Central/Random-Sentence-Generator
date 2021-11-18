@@ -34,21 +34,14 @@ public class Noun extends Word
   
   
   private static void readFile(){
-    ArrayList<Noun> info = new ArrayList<Noun>();
-    
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
-      {
-        info.add(new Noun(fileReader.next()));
-      }//ends while
+        list.add(new Noun(fileReader.next()));
       fileReader.close();
-      //System.out.println("words loaded from "+file);
     }catch (IOException e){
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
-
-    list = info;
   }//ends readFile
 
 }//ends Noun class

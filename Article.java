@@ -29,15 +29,12 @@ public class Article extends Word
 
 
 
-private static void readFile(){
+  private static void readFile(){
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
-      {
         list.add(new Article(fileReader.next()));
-      }//ends while
       fileReader.close();
-      //System.out.println("words loaded from "+file);
     }catch (IOException e){
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors

@@ -1,2 +1,2 @@
 language = "java10"
-run = "javac Test.java && java Test"
+run = "javac Test.java && javac Article.java && javac Noun.java && javac Verb.java && java Test"

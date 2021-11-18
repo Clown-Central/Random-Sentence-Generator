@@ -6,16 +6,6 @@ public class SentenceBuilder
   //public static ArrayList<Word> conjunctions;
   //private static ArrayList<Word> adjectives;
   //private static ArrayList<Word> adverbs;
-  
-  public static void prep()
-  {
-    //System.out.println("prep called");
-    Noun.list = Noun.readFile();
-    Article.list = Article.readFile();
-    //adjectives = Adjective.readFile();
-    Verb.list = Verb.readFile();
-    //adverbs = Adverbs.readFile(); 
-  }
 
   /* Description: This is the independent clause
    * @return String independentClause
@@ -74,11 +64,11 @@ public class SentenceBuilder
   public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
-    add(sentence,getSubject());
+    add(sentence,getThing("subject"));
     sentence.add(Verb.getNew().conjugate());
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
-    sentence.add(getObject());
+      add(sentence,getThing("object"));
 
     return formatSentence(sentence);
   }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
@@ -93,59 +83,36 @@ public class SentenceBuilder
     return s.substring(0,1).toUpperCase()+s.substring(1,s.length()-1).toLowerCase()+".";
   }//ends formatSentence - puts a capital letter and a period
 
-  /* Description: gets Object
-   * @return object
-   * CHANGE TO LINKEDLIST OF WORDS
-   */
-  private static Word getObject()
-  {
-    Article art = Article.getNew();
-    Noun n = Noun.getNew();
-    String phrase = "";
-    if(Math.random()*100>15)
-    {
-      if(art.equals("a")) phrase+=(n.isVowel())?"an":"a";
-      else phrase+=art;
-      //ADJECTIVES WILL GO HERE
-      return new Word(phrase+" "+n);//FIX LATER - make linked list
-    }
-    else
-    {
-      return new Word("them");//randomized pronoun (from list?)
-      //To-do: make conjugation match other possible pronouns (ex. "they") and plural nouns
-    }
-  }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
-
-  /* Description: Gets the subject
+  /* Description: Gets the subject or object
    * @return String subject
    */
-  public static LinkedList<Word> getSubject(/*String art, String n*/)
+  public static LinkedList<Word> getThing(String type)
   {
     LinkedList<Word> output = new LinkedList<Word>();
-    Article art = Article.getNew();
-    Noun n = Noun.getNew();
     if(Math.random()*100>15)//get object or use pronoun
     {
+      Article art = Article.getNew();
+      output.add(Noun.getNew());
       if(art.equals("a")) 
-        output.add(new Word((n.isVowel())?"an":"a"));
+        output.add(0,new Word(((Noun)(output.get(0))).isVowel()?"an":"a"));
       else 
-        output.add(art);
+        output.add(0,art);
       //ADJECTIVES WILL GO HERE
       return output;
     }
     else
     {
-      output.add(new Word("it"));//add other possibilities
+      if(type.equals("subject"))
+        output.add(new Word("it"));//add other possibilities
+      else if(type.equals("object"))
+        output.add(new Word("them"));//add other possibilities
+      else System.out.println("You did something wrong.");
     }
     return output;
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
 
-  private static void add(LinkedList<Word> oldList, LinkedList<Word> newList)
-  {
-    for(Word word : newList)
-    {
-      oldList.add(word);
-    }//end for
-  }//ends add method THIS METHOD MIGHT NOT WORK
+  private static void add(LinkedList<Word> oldList, LinkedList<Word> newList) {
+    for(Word word : newList) 
+      oldList.add(word);}//ends add method
    
 }//ends SentenceBuilder class 

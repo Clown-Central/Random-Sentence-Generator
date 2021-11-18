@@ -5,16 +5,13 @@ import java.io.File;//used to read file
 public class Noun extends Word
 {
 
-  public static ArrayList<Noun> list = new ArrayList<Noun>();  
-
-  public Noun(String word)
-  {
-    super(word);
-  }//ends constructor
-
   private static final String file = "Word Bank/nouns.txt";
-  
-  public static ArrayList<Noun> readFile(){
+  private static ArrayList<Noun> list = new ArrayList<Noun>();  
+
+  public Noun(String word){
+    super(word);}//ends constructor
+
+  public static void readFile(){
     ArrayList<Noun> info = new ArrayList<Noun>();
     
     try{
@@ -29,7 +26,7 @@ public class Noun extends Word
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
 
-    return info;
+    list = info;
   }//ends readFile
 
   /* Description: Gets word from file
@@ -39,6 +36,7 @@ public class Noun extends Word
    */
   public static Noun getNew()
   {
+    if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 

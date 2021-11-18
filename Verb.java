@@ -5,9 +5,8 @@ import java.io.File;//used to read file
 public class Verb extends Word
 {
 
-  public static ArrayList<Verb> list = new ArrayList<Verb>();
-
-  //private String word;
+  private static final String file = "Word Bank/verbs.txt";
+  private static ArrayList<Verb> list = new ArrayList<Verb>();
 
   public Verb(String word)
   {
@@ -15,9 +14,7 @@ public class Verb extends Word
     //this.word = word;
   }//ends constructor
 
-  private static final String file = "Word Bank/verbs.txt";
-  
-  public static ArrayList<Verb> readFile(){
+  public static void readFile(){
     ArrayList<Verb> info = new ArrayList<Verb>();
     
     try{
@@ -32,7 +29,7 @@ public class Verb extends Word
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
 
-    return info;
+    list=info;
   }//ends readFile
 
 
@@ -72,6 +69,7 @@ public class Verb extends Word
    */
   public static Verb getNew()
   {
+    if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 

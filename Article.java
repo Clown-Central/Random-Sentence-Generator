@@ -4,23 +4,21 @@ import java.io.File;//used to read file
 
 public class Article extends Word
 {
-  public static ArrayList<Article> list = new ArrayList<Article>();
+  private static final String file = "Word Bank/articles.txt";
+  private static ArrayList<Article> list = new ArrayList<Article>();
 
   public Article(String word)
   {
     super(word);
   }//ends constructor
 
-  private static final String file = "Word Bank/articles.txt";
-  
-  public static ArrayList<Article> readFile(){
-    ArrayList<Article> info = new ArrayList<Article>();
+  public static void readFile(){
     
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
       {
-        info.add(new Article(fileReader.next()));
+        list.add(new Article(fileReader.next()));
       }//ends while
       fileReader.close();
       //System.out.println("words loaded from "+file);
@@ -28,7 +26,6 @@ public class Article extends Word
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
 
-    return info;
   }//ends readFile
 
   /* Description: Gets word from file
@@ -38,6 +35,7 @@ public class Article extends Word
    */
   public static Article getNew()
   {
+    if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 

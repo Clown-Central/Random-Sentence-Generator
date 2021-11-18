@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.IOException;//for file issues
+import java.io.File;//used to read file
 
 public class Word
 {
@@ -31,5 +33,23 @@ public class Word
 
   public boolean equals(Word other){
     return (this.toString()).equals(other.toString());}
+
+  protected static ArrayList<Noun> readFile(String file){
+    ArrayList<Noun> info = new ArrayList<Noun>();
+    
+    try{
+      Scanner fileReader = new Scanner(new File(file));
+      while(fileReader.hasNext())
+      {
+        info.add(new Noun(fileReader.next()));
+      }//ends while
+      fileReader.close();
+      //System.out.println("words loaded from "+file);
+    }catch (IOException e){
+      System.out.println("Something's wrong with the file.");
+    }//ends catch file errors
+
+    return info;
+  }//ends readFile
 
 }//ends word class

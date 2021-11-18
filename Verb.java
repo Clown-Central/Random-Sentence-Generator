@@ -58,8 +58,7 @@ public class Verb extends Word
     //if (this.toString().equals("communicate"))temp+=" with";
     //fix the thing in the sentence generator that checks for a two letter word.
     
-    set(temp);
-    return this;
+    return new Verb(temp);
   }//returns complete, conjugated verb
 
   /* Description: Gets word from file

@@ -74,7 +74,7 @@ public class SentenceBuilder
   public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
-    sentence.add(getSubject());
+    add(sentence,getSubject());
     sentence.add(Verb.getNew().conjugate());
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
@@ -104,7 +104,7 @@ public class SentenceBuilder
     String phrase = "";
     if(Math.random()*100>15)
     {
-      if(art.equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
+      if(art.equals("a")) phrase+=(n.isVowel())?"an":"a";
       else phrase+=art;
       //ADJECTIVES WILL GO HERE
       return new Word(phrase+" "+n);//FIX LATER - make linked list
@@ -119,22 +119,33 @@ public class SentenceBuilder
   /* Description: Gets the subject
    * @return String subject
    */
-  public static Word getSubject(/*String art, String n*/)
+  public static LinkedList<Word> getSubject(/*String art, String n*/)
   {
+    LinkedList<Word> output = new LinkedList<Word>();
     Article art = Article.getNew();
     Noun n = Noun.getNew();
-    String phrase = "";
-    if(Math.random()*100>15)
+    if(Math.random()*100>15)//get object or use pronoun
     {
-      if(art.equals("a")) phrase+=(UsefulMethods.isVowel(n.toString()))?"an":"a";
-      else phrase+=art.toString();
+      if(art.equals("a")) 
+        output.add(new Word((n.isVowel())?"an":"a"));
+      else 
+        output.add(art);
       //ADJECTIVES WILL GO HERE
-      return new Word(phrase+" "+n.toString());
+      return output;
     }
     else
     {
-      return new Word("it");//randomized pronoun (from list?)
+      output.add(new Word("it"));//add other possibilities
     }
+    return output;
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
+
+  private static void add(LinkedList<Word> oldList, LinkedList<Word> newList)
+  {
+    for(Word word : newList)
+    {
+      oldList.add(word);
+    }//end for
+  }//ends add method THIS METHOD MIGHT NOT WORK
    
 }//ends SentenceBuilder class 

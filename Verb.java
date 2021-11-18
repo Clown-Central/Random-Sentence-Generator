@@ -75,5 +75,4 @@ public class Verb extends Word
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 
-
 }//ends Verb class

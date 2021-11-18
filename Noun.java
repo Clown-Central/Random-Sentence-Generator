@@ -42,5 +42,7 @@ public class Noun extends Word
     return list.get((int)(Math.random()*list.size()));
   }//ends method
 
+  public boolean isVowel() {
+    return this.toString().substring(0,1).toLowerCase().matches("[aeiou]");}//ends isVowel
 
 }//ends Noun class

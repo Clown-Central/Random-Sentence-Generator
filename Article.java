@@ -4,32 +4,40 @@ import java.io.File;//used to read file
 
 public class Article extends Word
 {
-  
+
   private static final String file = "Word Bank/articles.txt";
   private static ArrayList<Article> list = new ArrayList<Article>();
 
 
 
+  /* Description: Article constructor
+   * @pre: String word
+   * @param: String Word
+   * @return: None
+  */
   public Article(String word)
   {
     super(word);
   }//ends constructor
-
+  
 
 
   /* Description: Gets word from file
-   * @pre ArrayList<Word> list
-   * @param ArrayList<Word> list
-   * @return Word word
-   */
+   * @pre: none
+   * @param: none
+   * @return: Word from article file
+  */
   public static Article getNew()
   {
     if(list.size()==0) readFile();
-    return list.get((int)(Math.random()*list.size()));
-  }//ends method
+      return list.get((int)(Math.random()*list.size()));
+  }//ends getNew() method
 
 
 
+  /* Description: Reads File
+   * @post: list now contains words from word bank
+   */
   private static void readFile(){
     try{
       Scanner fileReader = new Scanner(new File(file));

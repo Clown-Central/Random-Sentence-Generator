@@ -10,29 +10,47 @@ public class Noun extends Word
 
 
 
-  public Noun(String word){
-    super(word);}//ends constructor
+  /* Description: Noun constructor
+   * @pre: String word
+   * @param: String word
+   * @return: none
+  */
+  public Noun(String word)
+  {
+    super(word);
+  }//ends constructor
 
-  
+
 
   /* Description: Gets word from file
-   * @pre ArrayList<Word> list
-   * @param ArrayList<Word> list
-   * @return Word word
-   */
+   * @pre: none
+   * @param: none
+   * @return: word from file
+  */
   public static Noun getNew()
   {
     if(list.size()==0) readFile();
-    return list.get((int)(Math.random()*list.size()));
-  }//ends method
+      return list.get((int)(Math.random()*list.size()));
+  }//ends getNew() method
 
 
 
-  public boolean isVowel() {
-    return this.toString().substring(0,1).toLowerCase().matches("[aeiou]");}//ends isVowel
+  /* Description: Checks if noun starts with a vowel
+   * @pre: none
+   * @param: none
+   * @return: true or false
+  */  
+  public boolean isVowel() 
+  {
+    return this.toString().substring(0,1).toLowerCase().matches("[aeiou]");
+  }//ends isVowel method
 
-  
-  
+
+
+    
+  /* Description: Read file
+   * @post: list now contains words from word bank
+  */
   private static void readFile(){
     try{
       Scanner fileReader = new Scanner(new File(file));

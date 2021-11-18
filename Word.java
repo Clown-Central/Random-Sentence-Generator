@@ -25,31 +25,7 @@ public class Word
   public String toString(){
     return word;}//ends toString
 
-  public void set(String word){
-    this.word=word;}
-
-  public boolean equals(String str){
-    return (this.toString()).equals(str);}
-
   public boolean equals(Word other){
     return (this.toString()).equals(other.toString());}
-
-  protected static ArrayList<Noun> readFile(String file){
-    ArrayList<Noun> info = new ArrayList<Noun>();
-    
-    try{
-      Scanner fileReader = new Scanner(new File(file));
-      while(fileReader.hasNext())
-      {
-        info.add(new Noun(fileReader.next()));
-      }//ends while
-      fileReader.close();
-      //System.out.println("words loaded from "+file);
-    }catch (IOException e){
-      System.out.println("Something's wrong with the file.");
-    }//ends catch file errors
-
-    return info;
-  }//ends readFile
 
 }//ends word class

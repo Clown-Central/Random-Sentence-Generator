@@ -81,7 +81,7 @@ public class SentenceBuilder
   /* Description: Gets the subject or object
    * @return String subject
    */
-  public static LinkedList<Word> getThing(String type)
+  private static LinkedList<Word> getThing(String type)
   {
     LinkedList<Word> output = new LinkedList<Word>();
     if(Math.random()*100>5)//get object or use pronoun

@@ -8,31 +8,29 @@ public class Verb extends Word
   private static final String file = "Word Bank/verbs.txt";
   private static ArrayList<Verb> list = new ArrayList<Verb>();
 
+
+
   public Verb(String word)
   {
     super(word);
     //this.word = word;
   }//ends constructor
 
-  public static void readFile(){
-    ArrayList<Verb> info = new ArrayList<Verb>();
-    
-    try{
-      Scanner fileReader = new Scanner(new File(file));
-      while(fileReader.hasNext())
-      {
-        info.add(new Verb(fileReader.next()));
-      }//ends while
-      fileReader.close();
-      //System.out.println("words loaded from "+file);
-    }catch (IOException e){
-      System.out.println("Something's wrong with the file.");
-    }//ends catch file errors
-
-    list=info;
-  }//ends readFile
 
 
+  /* Description: Gets word from file
+   * @pre ArrayList<Word> list
+   * @param ArrayList<Word> list
+   * @return Word word
+   */
+  public static Verb getNew()
+  {
+    if(list.size()==0) readFile();
+    return list.get((int)(Math.random()*list.size()));
+  }//ends method
+  
+  
+  
   /* Description: Conjugates verb
    * @pre int tense
    * @param int tense
@@ -61,15 +59,24 @@ public class Verb extends Word
     return new Verb(temp);
   }//returns complete, conjugated verb
 
-  /* Description: Gets word from file
-   * @pre ArrayList<Word> list
-   * @param ArrayList<Word> list
-   * @return Word word
-   */
-  public static Verb getNew()
-  {
-    if(list.size()==0) readFile();
-    return list.get((int)(Math.random()*list.size()));
-  }//ends method
+
+
+  private static void readFile(){
+    ArrayList<Verb> info = new ArrayList<Verb>();
+    
+    try{
+      Scanner fileReader = new Scanner(new File(file));
+      while(fileReader.hasNext())
+      {
+        info.add(new Verb(fileReader.next()));
+      }//ends while
+      fileReader.close();
+      //System.out.println("words loaded from "+file);
+    }catch (IOException e){
+      System.out.println("Something's wrong with the file.");
+    }//ends catch file errors
+
+    list=info;
+  }//ends readFile
 
 }//ends Verb class

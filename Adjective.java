@@ -15,10 +15,7 @@ public class Adjective extends Word
 
   public static Adjective getNew()
   {
-    if(list.size()==0)
-    {
-      readFile();
-    }
+    if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
   }
 

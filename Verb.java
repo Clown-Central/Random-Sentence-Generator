@@ -59,14 +59,14 @@ public class Verb extends Word
 
     fullVerb.add(new Verb(temp));
 
-    String str;
-    if (this.toString().equals("frown"))str="at";
-    if (this.toString().equals("speak")||this.toString().equals("respond")||this.toString().equals("listen"))str="to";
-    if (this.toString().equals("sleep")||this.toString().equals("walk")||this.toString().equals("run"))str="on";
-    if (this.toString().equals("account"))str="for";
-    if (this.toString().equals("communicate"))str=" with";
+    String str = "";
+    if (this.equals("frown"))str="at";
+    if (this.equals("speak")||this.equals("respond")||this.equals("listen"))str="to";
+    if (this.equals("sleep")||this.equals("walk")||this.equals("run"))str="on";
+    if (this.equals("account"))str="for";
+    if (this.equals("communicate"))str="with";
 
-    if(str!=null)fullVerb.add(new Word(str,"verbHelper"));
+    if(!str.equals(""))fullVerb.add(new Word(str,"verbHelper"));
     return fullVerb;
   }//returns complete, conjugated verb
 

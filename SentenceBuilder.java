@@ -78,26 +78,46 @@ public class SentenceBuilder
     public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
-    switch((int)Math.random()*5)
+    switch((int)(Math.random()*2))//change to 5 when other options complete
     {
-      case 1:
+      case 0:
       {
         add(sentence, getThing("subject"));
         add(sentence,Verb.getNew().conjugate());
-        if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
+        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
+          add(sentence,getThing("object")); 
+
+        return formatSentence(sentence);
+      }
+      case 1:
+      {
+        add(sentence, getThing("subject"));
+        add(sentence, Verb.getNew().conjugate());
+        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
+        {
           add(sentence,getThing("object"));
+          int i=2;
+          for(;i<sentence.size();i++)
+          {
+            if(sentence.get(i).getType().equals("Noun"))
+            break;
+          }
+          sentence.add(i,Adjective.getNew());
+        }    
 
         return formatSentence(sentence);
       }
       case 2:
       {
-        add(sentence, getThing("subject"));
-        add(sentence, Verb.getNew().conjugate());
-        sentence.add(Adjective.getNew());
-        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
-          add(sentence,getThing("object"));
-
-        return formatSentence(sentence);
+        System.out.println("not complete yet");
+      }
+      case 3:
+      {
+        System.out.println("not complete yet");
+      }
+      case 4:
+      {
+        System.out.println("not complete yet");
       }
     }
     return formatSentence(sentence);

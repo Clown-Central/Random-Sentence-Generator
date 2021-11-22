@@ -58,13 +58,21 @@ public class Word
     this.type = type;
   }//ends toString
 
-  /* Description: checks if the word is equal to word in file
-   * @pre: Word other
+  /* Description: checks if the word is equal to word
    * @param: Word other
    * @return: true or false
   */
   public boolean equals(Word other)
   {
     return (this.toString()).equals(other.toString());
+  }//
+
+  /* Description: checks if the word is equal to string
+   * @param: String other
+   * @return: true or false
+  */
+  public boolean equals(String other)
+  {
+    return (this.toString()).equals(other);
   }//
 }//ends word class

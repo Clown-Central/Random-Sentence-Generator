@@ -1,3 +1,20 @@
+Work to Divide up
+=
+* prepositions
+  * make word bank
+  * add prepositional phrase functionality (as method that adds getPreposition, getArticle, getNoun?)
+  * insert phrase into correct location
+* verb tense (past/present/sing/plur)
+* adjectives
+  * make wordbank
+  * make class 
+  * insert into correct location
+* adverbs
+  * make wordbank
+  * make class 
+  * insert into correct location
+* dependent/independent clauses
+
 Webscraping Info and Possible Sources
 =
 * https://replit.com/talk/learn/Get-started-with-Web-Scraping/8930

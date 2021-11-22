@@ -18,7 +18,7 @@ public class Verb extends Word
   public Verb(String word)
   {
     super(word);
-    //this.word = word;
+    setType("Verb");
   }//ends constructor
 
 
@@ -41,34 +41,34 @@ public class Verb extends Word
    * @param int: none
    * @return: Verb
    */
-  public Verb conjugate()
+  public LinkedList<Word> conjugate(/*tense?*/)
   {
-    String temp = this.toString().substring(0,this.toString().length()-1);
+    String last = this.toString().substring(this.toString().length()-1);
+    String temp;
+    LinkedList<Word> fullVerb = new LinkedList<Word>();
     
-    if(this.toString().substring(this.toString().length()-1).equals("y" )&&(!this.toString().equals("convey"))) 
-      temp+="ies";
+    if(last.equals("y")&&(!this.toString().equals("convey"))) 
+      temp=this.toString().substring(0,this.toString().length()-1)+"ies";
     else 
     {
-      temp+=this.toString().substring(this.toString().length()-1);
-      if(this.toString().substring(this.toString().length()-1).equals("s")) temp+="es";
-      else if(this.toString().substring(this.toString().length()-1).equals("h")) temp+="es";
+      temp=this.toString();
+      if(last.equals("s")) temp+="es";
+      else if(last.equals("h")) temp+="es";
       else temp+="s";
     }//ends else statement
 
+    fullVerb.add(new Verb(temp));
 
+    String str = "";
+    if (this.equals("frown"))str="at";
+    if (this.equals("speak")||this.equals("respond")||this.equals("listen"))str="to";
+    if (this.equals("sleep")||this.equals("walk")||this.equals("run"))str="on";
+    if (this.equals("account"))str="for";
+    if (this.equals("communicate"))str="with";
 
-    //ADVERBS HERE?
-    if (this.toString().equals("frown"))temp+=" at";
-    if (this.toString().equals("speak")||this.toString().equals("respond")||this.toString().equals("listen"))temp+=" to";
-    //if (this.toString().equals("account"))temp+=" for";
-    //if (this.toString().equals("communicate"))temp+=" with";
-    //fix the thing in the sentence generator that checks for a two letter word.
-    
-
-    return new Verb(temp);
+    if(!str.equals(""))fullVerb.add(new Word(str,"verbHelper"));
+    return fullVerb;
   }//returns complete, conjugated verb
-
-
 
   /* Description: Readsfile
    * @post: list now contains words from word bank

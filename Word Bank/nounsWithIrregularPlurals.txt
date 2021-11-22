@@ -155,3 +155,5 @@ philosophy	philosophies
 minority	minorities
 priority	priorities
 fun fun
+goose geese
+mouse mice

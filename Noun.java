@@ -18,6 +18,7 @@ public class Noun extends Word
   public Noun(String word)
   {
     super(word);
+    setType("Noun");
   }//ends constructor
 
 
@@ -61,5 +62,7 @@ public class Noun extends Word
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
   }//ends readFile
+
+  
 
 }//ends Noun class

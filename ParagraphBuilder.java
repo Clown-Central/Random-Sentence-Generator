@@ -145,7 +145,7 @@ public class ParagraphBuilder
           } 
         else 
           {
-            System.out.println("Unvalid Input");
+            System.out.println("Invalid Input");
           }
       } // ends while loop
     return mode;

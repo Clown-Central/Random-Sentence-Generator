@@ -18,6 +18,7 @@ public class Article extends Word
   public Article(String word)
   {
     super(word);
+    setType("Article");    
   }//ends constructor
   
 

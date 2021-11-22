@@ -50,7 +50,7 @@ public class SentenceBuilder
         valid++;
       }
       else{
-        System.out.println("Unvalid Input");
+        System.out.println("Invalid Input");
       }
     }//ends while loop
     se.close();
@@ -61,18 +61,49 @@ public class SentenceBuilder
 
 /* Description: Builds the actual sentence
  * @return String formatSentence(sentence)
- */
+ *
   public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
     add(sentence,getThing("subject"));
-    sentence.add(Verb.getNew().conjugate());
+    add(sentence,Verb.getNew().conjugate());
     
     if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
       add(sentence,getThing("object"));
 
     return formatSentence(sentence);
   }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
+  */
+
+    public static String getSentence()
+  {
+    LinkedList<Word> sentence = new LinkedList<Word>();
+    switch((int)Math.random()*5)
+    {
+      case 1:
+      {
+        add(sentence, getThing("subject"));
+        add(sentence,Verb.getNew().conjugate());
+        if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
+          add(sentence,getThing("object"));
+
+        return formatSentence(sentence);
+      }
+      case 2:
+      {
+        add(sentence, getThing("subject"));
+        add(sentence, Verb.getNew().conjugate());
+        sentence.add(Adjective.getNew());
+        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
+          add(sentence,getThing("object"));
+
+        return formatSentence(sentence);
+      }
+    }
+    return formatSentence(sentence);
+  }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
+
+  
 
 
 

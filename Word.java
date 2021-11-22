@@ -6,6 +6,7 @@ public class Word
 {
 
   private String word;
+  private String type;
 
 
   /*public static ArrayList<Word> readFile(){
@@ -23,7 +24,15 @@ public class Word
     this.word = word;
   }//ends constructor
 
-
+  /* Description: Word constructor
+   * @pre String word, String type
+   * @param String word, String type
+   */
+  public Word(String word, String type)
+  {
+    this.word = word;
+    this.type = type;
+  }//ends constructor
 
   /* Description: Converts word toString
    * @return String word
@@ -33,7 +42,21 @@ public class Word
     return word;
   }//ends toString
 
+  /* Description: gets type
+   * @return String type
+   */
+  public String getType()
+  {
+    return type;
+  }//ends toString
 
+  /* Description: sets type
+   * @param String type
+   */
+  public void setType(String type)
+  {
+    this.type = type;
+  }//ends toString
 
   /* Description: checks if the word is equal to word in file
    * @pre: Word other

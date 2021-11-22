@@ -97,12 +97,8 @@ public class SentenceBuilder
         {
           add(sentence,getThing("object"));
           int i=2;
-          for(;i<sentence.size();i++)
-          {
-            if(sentence.get(i).getType().equals("Noun"))
-            break;
-          }
-          sentence.add(i,Adjective.getNew());
+          while (i<sentence.size() && !(sentence.get(i).getType().equals("Noun"))) i++;
+          if(i<sentence.size())sentence.add(i,Adjective.getNew());
         }    
 
         return formatSentence(sentence);

@@ -14,6 +14,7 @@ Work to Divide up
   * make class 
   * insert into correct location
 * dependent/independent clauses
+* user input
 
 Webscraping Info and Possible Sources
 =
@@ -39,14 +40,6 @@ _**OR**_
 ### STEP 3:
 * make a story
 
-To Do's
-=
-* Break up Sentences into dependent and independent clauses
-* Use conjunctions
-* Insert prepositional phrases
-* Insert adjectives
-* Insert adverbs
-
 Pain
 =
 * user input
@@ -56,3 +49,4 @@ Pain
 * using verbs as nouns (gerunds)
 * parallel structure (ex. "he *runs* and *jumps*")
 * AI?
+* superlative

@@ -1,9 +1,13 @@
 # **Random Sentence Generator**
 This random sentence generator returns a grammatically correct (though often incoherent) sentence between two and six words long. It contains a subject, a verb conjugated in the present tense, and sometimes an object.
 
-The Noun wordbank is based on:  https://www.wordexample.com/list/most-common-nouns-english.
+The noun wordbank is based on:  https://www.wordexample.com/list/most-common-nouns-english.
+The adjective wordbank is based on:
+https://grammar.yourdictionary.com/parts-of-speech/adjectives/list-of-adjective-words.html
 
 ## ParagraphBuilder Class
+* 
+* 
 ## SentenceBuilder Class
 * `public static String getSentence()` : returns a sentence composed of at least two words (a subject and properly conjugated verb) in String format with correct capitalization and punctualization
 

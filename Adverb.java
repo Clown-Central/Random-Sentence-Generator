@@ -2,18 +2,18 @@ import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file
 
-public class Adjective extends Word
+public class Adverb extends Word
 {
-  private static final String file = "Word Bank/adjectives.txt";
-  private static ArrayList<Adjective> list = new ArrayList<Adjective>(); 
+  private static final String file = "Word Bank/Adverbs.txt";
+  private static ArrayList<Adverb> list = new ArrayList<Adverb>(); 
 
-  public Adjective(String word)
+  public Adverb(String word)
   {
     super(word);
-    setType("Adjective");
+    setType("Adverb");
   }
 
-  public static Adjective getNew()
+  public static Adverb getNew()
   {
     if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
@@ -26,17 +26,17 @@ public class Adjective extends Word
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
-        list.add(new Adjective(fileReader.next()));
+        list.add(new Adverb(fileReader.next()));
       fileReader.close();
     }catch (IOException e){
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
   }//ends readFile
 
-  public LinkedList<Word> getAdjective()
+  public LinkedList<Word> getAdverb()
   {
-    LinkedList<Word> adjective = new LinkedList<Word>();
-    adjective.add(getNew());
-    return adjective;
+    LinkedList<Word> adverb = new LinkedList<Word>();
+    adverb.add(getNew());
+    return adverb;
   }
 }

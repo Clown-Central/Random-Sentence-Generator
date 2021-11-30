@@ -96,9 +96,13 @@ public class SentenceBuilder
         if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
         {
           add(sentence,getThing("object"));
-          int i=2;
-          while (i<sentence.size()-2 /**/&& !(sentence.get(i).getType().equals("Noun"))/**/) i++;
-          if(i<sentence.size())sentence.add(i,Adjective.getNew());
+          
+          for(int i=2;i<sentence.size(); i++)
+            if(sentence.get(i).getType().equals("Noun"))
+            {
+              sentence.add(i,Adjective.getNew());
+              break;
+            }
         }    
 
         return formatSentence(sentence);

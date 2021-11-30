@@ -65,6 +65,7 @@ public class Verb extends Word
     if (this.equals("sleep")||this.equals("walk")||this.equals("run"))str="on";
     if (this.equals("account"))str="for";
     if (this.equals("communicate"))str="with";
+    if (this.equals("jump"))str="over";
 
     if(!str.equals(""))fullVerb.add(new Word(str,"verbHelper"));
     return fullVerb;

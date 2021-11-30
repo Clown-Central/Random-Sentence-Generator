@@ -96,13 +96,17 @@ public class SentenceBuilder
         if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
         {
           add(sentence,getThing("object"));
+          //System.out.println(sentence);
           
           for(int i=2;i<sentence.size(); i++)
+          {
+            //System.out.println(i+"/"+sentence.size());
             if(sentence.get(i).getType().equals("Noun"))
             {
               sentence.add(i,Adjective.getNew());
               break;
             }
+          }
         }    
 
         return formatSentence(sentence);
@@ -157,7 +161,7 @@ public class SentenceBuilder
         Article art = Article.getNew();
         output.add(Noun.getNew());
         if(art.equals("a")) 
-          output.add(0,new Word(((Noun)(output.get(0))).isVowel()?"an":"a"));
+          output.add(0,new Word(((Noun)(output.get(0))).isVowel()?"an":"a","Article"));
         else 
           output.add(0,art);
         //ADJECTIVES WILL GO HERE
@@ -166,9 +170,9 @@ public class SentenceBuilder
     else
       {
         if(type.equals("subject"))
-          output.add(new Word("it"));//add other possibilities
+          output.add(new Word("it","pronoun"));//add other possibilities
         else if(type.equals("object"))
-          output.add(new Word("them"));//add other possibilities
+          output.add(new Word("them","pronoun"));//add other possibilities
         else System.out.println("You did something wrong.");
       }
     return output;

@@ -31,7 +31,10 @@ public class Verb extends Word
   */
   public static Verb getNew()
   {
-    if(list.size()==0) readFile();
+    if(list.size()==0)
+    {
+      readFile();
+    }
       return list.get((int)(Math.random()*list.size()));
   }//ends method
   
@@ -48,27 +51,54 @@ public class Verb extends Word
     String temp;
     LinkedList<Word> fullVerb = new LinkedList<Word>();
     
-    if(last.equals("y")&&(!this.toString().equals("convey"))) 
+    if(last.equals("y")&&(!this.toString().equals("convey")))
+    {
       temp=this.toString().substring(0,this.toString().length()-1)+"ies";
+    }
     else 
     {
       temp=this.toString();
-      if(last.equals("s")) temp+="es";
-      else if(last.equals("h")) temp+="es";
-      else temp+="s";
+      if(last.equals("s") || last.equals("h"))
+      {
+        temp+="es";
+      }
+      else
+      {
+        temp+="s";
+      }
     }//ends else statement
 
     fullVerb.add(new Verb(temp));
 
     String str = "";
-    if (this.equals("frown"))str="at";
-    if (this.equals("speak")||this.equals("respond")||this.equals("listen"))str="to";
-    if (this.equals("sleep")||this.equals("walk")||this.equals("run"))str="on";
-    if (this.equals("account"))str="for";
-    if (this.equals("communicate"))str="with";
-    if (this.equals("jump"))str="over";
-
-    if(!str.equals(""))fullVerb.add(new Word(str,"verbHelper"));
+    if (this.equals("frown"))
+    {
+      str="at";
+    }
+    if (this.equals("speak")||this.equals("respond")||this.equals("listen"))
+    {
+      str="to";
+    }
+    if (this.equals("sleep")||this.equals("walk")||this.equals("run"))
+    {
+      str="on";
+    }
+    if (this.equals("account"))
+    {
+      str="for";
+    }
+    if (this.equals("communicate"))
+    {
+      str="with";
+    }
+    if (this.equals("jump"))
+    {
+      str="over";
+    }
+    if(!str.equals(""))
+    {
+      fullVerb.add(new Word(str,"verbHelper"));
+    }
     return fullVerb;
   }//returns complete, conjugated verb
 

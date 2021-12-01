@@ -58,7 +58,7 @@ public class SentenceBuilder
   }//ends sentenceTense method
     */
 
-    public static String getSentence()
+  public static String getSentence()
   {
     LinkedList<Word> sentence = new LinkedList<Word>();
     switch((int)(Math.random()*2))//change to 5 when other options complete
@@ -133,20 +133,34 @@ public class SentenceBuilder
       {
         Article art = Article.getNew();
         output.add(Noun.getNew());
-        if(Math.random()>0.5)output.add(0,Adjective.getNew());
-        if(art.equals("a")) 
-          output.add( 0,  new Word( (String)((output.get(0)).isVowel() ? "an":"a"),   "Article"  ));
+        if(Math.random()>0.5)
+        {
+          output.add(0,Adjective.getNew());
+        }
+        if(art.equals("a"))
+        {
+          output.add(0, new Word(((output.get(0)).isVowel() ? "an":"a"), "Article"));
+        }
         else 
+        {
           output.add(0,art);
+        }
         return output;
       }
     else
       {
         if(type.equals("subject"))
+        {
           output.add(new Word("it","pronoun"));//add other possibilities
+        }
         else if(type.equals("object"))
+        {
           output.add(new Word("them","pronoun"));//add other possibilities
-        else System.out.println("You did something wrong.");
+        }
+        else
+        {
+          System.out.println("You did something wrong.");
+        }
       }
     return output;
   }//ends fullNoun method - changes A to An if neccessary, returns article+noun, when we want to add adjectives, they go here
@@ -160,7 +174,9 @@ public class SentenceBuilder
   */
   private static void add(LinkedList<Word> oldList, LinkedList<Word> newList) 
   {
-    for(Word word : newList) 
+    for(Word word : newList)
+    {
       oldList.add(word);
+    }
   }//ends add method
 }//ends SentenceBuilder class 

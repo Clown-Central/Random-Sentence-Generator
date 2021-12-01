@@ -4,20 +4,31 @@ import java.io.File;//used to read file
 
 public class Adverb extends Word
 {
+
+
+
   private static final String file = "Word Bank/Adverbs.txt";
   private static ArrayList<Adverb> list = new ArrayList<Adverb>(); 
 
+
+
+
   public Adverb(String word)
   {
-    super(word);
-    setType("Adverb");
+    super(word,"Adverb");
   }
+
+
+
 
   public static Adverb getNew()
   {
     if(list.size()==0) readFile();
     return list.get((int)(Math.random()*list.size()));
   }
+
+
+
 
   /* Description: Read file
    * @post: list now contains words from word bank
@@ -33,10 +44,4 @@ public class Adverb extends Word
     }//ends catch file errors
   }//ends readFile
 
-  public LinkedList<Word> getAdverb()
-  {
-    LinkedList<Word> adverb = new LinkedList<Word>();
-    adverb.add(getNew());
-    return adverb;
-  }
 }

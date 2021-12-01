@@ -19,10 +19,10 @@ public class Word
    * @pre String word, String type
    * @param String word, String type
    */
-  public Word(String word/*, String type*/)
-  {
-    this.word = word;
-  }//ends constructor
+  //public Word(String word/*, String type*/)
+  //{
+  //  this.word = word;
+  //}//ends constructor
 
   /* Description: Word constructor
    * @pre String word, String type
@@ -67,6 +67,17 @@ public class Word
     return (this.toString()).equals(other.toString());
   }//
 
+  /* Description: Checks if word starts with a vowel
+   * @return true or false
+  */  
+  public boolean isVowel() 
+  {
+    return this.toString().substring(0,1).toLowerCase().matches("[aeiou]");
+  }//ends isVowel method
+  
+  
+
+  
   /* Description: checks if the word is equal to string
    * @param: String other
    * @return: true or false

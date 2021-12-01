@@ -1,6 +1,6 @@
 Current Tasks
 =
-* adjectives - insert into correct location (Jomar)
+* adjectives/adverbs - insert into correct location (Jomar)
 * sentence formats - including dependent/independent clauses? (Shang)
 * Organization (Aaron)
 * Prepositions Word Bank (Adriano)

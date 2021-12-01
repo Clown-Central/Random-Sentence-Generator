@@ -5,6 +5,8 @@ import java.io.File;//used to read file
 public class Verb extends Word
 {
 
+
+
   private static final String file = "Word Bank/verbs.txt";
   private static ArrayList<Verb> list = new ArrayList<Verb>();
 
@@ -17,8 +19,7 @@ public class Verb extends Word
   */
   public Verb(String word)
   {
-    super(word);
-    setType("Verb");
+    super(word,"Verb");
   }//ends constructor
 
 

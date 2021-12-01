@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SentenceBuilder
+public class SentenceBuilder 
 {
 
   /* Description: This is the independent clause
@@ -56,24 +56,7 @@ public class SentenceBuilder
     se.close();
     return tense;
   }//ends sentenceTense method
-  
-
-
-/* Description: Builds the actual sentence
- * @return String formatSentence(sentence)
- *
-  public static String getSentence()
-  {
-    LinkedList<Word> sentence = new LinkedList<Word>();
-    add(sentence,getThing("subject"));
-    add(sentence,Verb.getNew().conjugate());
-    
-    if(sentence.getLast().toString().length()<3 || Math.random()>0.1) 
-      add(sentence,getThing("object"));
-
-    return formatSentence(sentence);
-  }//builds a sentenceLinkedList<String> test = new LinkedList<String>();
-  */
+    */
 
     public static String getSentence()
   {
@@ -96,17 +79,7 @@ public class SentenceBuilder
         if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
         {
           add(sentence,getThing("object"));
-          //System.out.println(sentence);
-          
-          for(int i=2;i<sentence.size(); i++)
-          {
-            //System.out.println(i+"/"+sentence.size());
-            if(sentence.get(i).getType().equals("Noun"))
-            {
-              sentence.add(i,Adjective.getNew());
-              break;
-            }
-          }
+          //ADJECTIVES RELOCATED TO getThing METHOD
         }    
 
         return formatSentence(sentence);
@@ -160,11 +133,11 @@ public class SentenceBuilder
       {
         Article art = Article.getNew();
         output.add(Noun.getNew());
+        if(Math.random()>0.5)output.add(0,Adjective.getNew());
         if(art.equals("a")) 
-          output.add(0,new Word(((Noun)(output.get(0))).isVowel()?"an":"a","Article"));
+          output.add( 0,  new Word( (String)((output.get(0)).isVowel() ? "an":"a"),   "Article"  ));
         else 
           output.add(0,art);
-        //ADJECTIVES WILL GO HERE
         return output;
       }
     else

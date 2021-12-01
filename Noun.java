@@ -5,6 +5,8 @@ import java.io.File;//used to read file
 public class Noun extends Word
 {
 
+
+
   private static final String file = "Word Bank/nouns.txt";
   private static ArrayList<Noun> list = new ArrayList<Noun>();  
 
@@ -17,8 +19,7 @@ public class Noun extends Word
   */
   public Noun(String word)
   {
-    super(word);
-    setType("Noun");
+    super(word,"Noun");
   }//ends constructor
 
 
@@ -36,19 +37,7 @@ public class Noun extends Word
 
 
 
-  /* Description: Checks if noun starts with a vowel
-   * @pre: none
-   * @param: none
-   * @return: true or false
-  */  
-  public boolean isVowel() 
-  {
-    return this.toString().substring(0,1).toLowerCase().matches("[aeiou]");
-  }//ends isVowel method
-
-
-
-    
+ 
   /* Description: Read file
    * @post: list now contains words from word bank
   */
@@ -62,7 +51,4 @@ public class Noun extends Word
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
   }//ends readFile
-
-  
-
 }//ends Noun class

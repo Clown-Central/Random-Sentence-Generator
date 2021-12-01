@@ -1,26 +1,22 @@
-Work to Divide up
+Current Tasks
+=
+* adjectives - insert into correct location (Jomar)
+* sentence formats - including dependent/independent clauses? (Shang)
+* Organization (Aaron)
+* Prepositions Word Bank (Adriano)
+* Questionable Dialect (Miguel)
+
+Future Tasks
 =
 * prepositions
-  * make word bank
   * add prepositional phrase functionality (as method that adds getPreposition, getArticle, getNoun?)
   * insert phrase into correct location
 * verb tense (past/present/sing/plur)
-* adjectives
-  * make wordbank
-  * make class 
-  * insert into correct location
 * adverbs
   * make wordbank
-  * make class 
   * insert into correct location
-* dependent/independent clauses
 * user input
-
-Webscraping Info and Possible Sources
-=
-* https://replit.com/talk/learn/Get-started-with-Web-Scraping/8930
-* https://replit.com/@jajoosam/quote-scraper-starter
-* https://www.randomwordgenerator.org/Word/generate2/word_type/noun/quantity/2
+  * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 General Plan
 =
@@ -30,6 +26,12 @@ General Plan
 _**OR**_
 
 * allow user to create own wordbank
+
+_**OR**_
+
+* don't do either of those
+
+
 ### STEP 2: 
 * make a complete sentence
   * Randomize structure purpose (i.e. Statements, Questions, Exclamations) 
@@ -50,3 +52,9 @@ Pain
 * parallel structure (ex. "he *runs* and *jumps*")
 * AI?
 * superlative
+
+Webscraping Info and Possible Sources
+=
+* https://replit.com/talk/learn/Get-started-with-Web-Scraping/8930
+* https://replit.com/@jajoosam/quote-scraper-starter
+* https://www.randomwordgenerator.org/Word/generate2/word_type/noun/quantity/2

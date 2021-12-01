@@ -65,21 +65,21 @@ public class SentenceBuilder
     {
       case 0:
       {
-        add(sentence, getThing("subject"));
+        add(sentence, getPhrase("subject"));
         add(sentence,Verb.getNew().conjugate());
         if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
-          add(sentence,getThing("object")); 
+          add(sentence,getPhrase("object")); 
 
         return formatSentence(sentence);
       }
       case 1:
       {
-        add(sentence, getThing("subject"));
+        add(sentence, getPhrase("subject"));
         add(sentence, Verb.getNew().conjugate());
         if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
         {
-          add(sentence,getThing("object"));
-          //ADJECTIVES RELOCATED TO getThing METHOD
+          add(sentence,getPhrase("object"));
+          //ADJECTIVES RELOCATED TO getPhrase METHOD
         }    
 
         return formatSentence(sentence);
@@ -126,7 +126,7 @@ public class SentenceBuilder
    * @param: String type
    * @return: LinkedList<Word>
   */
-  private static LinkedList<Word> getThing(String type)
+  private static LinkedList<Word> getPhrase(String type)
   {
     LinkedList<Word> output = new LinkedList<Word>();
     if(Math.random()*100>5)//get object or use pronoun

@@ -39,3 +39,5 @@ https://grammar.yourdictionary.com/parts-of-speech/adjectives/list-of-adjective-
 * `public Verb(String word)` : creates a new Verb using Word constructor
 * `public static Verb getNew()` : returns a random Verb
 * `public LinkedList<Verb> conjugate()` : returns a Verb conjugated in the present tense
+
+deez

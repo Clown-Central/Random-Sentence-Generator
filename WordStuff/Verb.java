@@ -95,6 +95,7 @@ public class Verb extends Word
         break;
       case "deal":
         str="with";
+        break;
     }
     if(!str.equals(""))
     {

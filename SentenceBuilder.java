@@ -78,10 +78,7 @@ public class SentenceBuilder
         add(sentence, getPhrase("subject"));
         add(sentence, Verb.getNew().conjugate());
         if(sentence.getLast().getType().equals("Conjunction") || Math.random()>0.1) 
-        {
           add(sentence,getPhrase("object"));
-          //ADJECTIVES RELOCATED TO getPhrase METHOD
-        }    
 
         return formatSentence(sentence);
       }

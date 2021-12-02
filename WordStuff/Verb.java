@@ -26,8 +26,6 @@ public class Verb extends Word
 
 
   /* Description: Gets word from file
-   * @pre: none
-   * @param: none
    * @return: Word from article file
   */
   public static Verb getNew()
@@ -103,6 +101,9 @@ public class Verb extends Word
     }
     return fullVerb;
   }//returns complete, conjugated verb
+
+
+
 
   /* Description: Readsfile
    * @post: list now contains words from word bank

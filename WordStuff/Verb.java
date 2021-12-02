@@ -72,7 +72,7 @@ public class Verb extends Word
     fullVerb.add(new Verb(temp));
 
     String str = "";
-    //the holy switch statement
+    //the cursed switch statement
     switch(str/*this*/)
     {
       case "frown": 

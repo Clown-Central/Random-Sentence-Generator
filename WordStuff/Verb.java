@@ -88,15 +88,17 @@ public class Verb extends Word
         str="for";
         break;
       case "communicate":
-        str="with";
+        str="with";//add "to","about","for"
         break;
       case "jump":
         str="over";
         break;
+      case "deal":
+        str="with";
     }
     if(!str.equals(""))
     {
-      fullVerb.add(new Word(str,"verbHelper"));
+      fullVerb.add(new Word(str,"Conjunction"));
     }
     return fullVerb;
   }//returns complete, conjugated verb

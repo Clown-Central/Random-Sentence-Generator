@@ -68,7 +68,7 @@ public class SentenceBuilder
       {
         add(sentence, getPhrase("subject"));
         add(sentence,Verb.getNew().conjugate());
-        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
+        if(sentence.getLast().getType().equals("Conjunction") || Math.random()>0.1) 
           add(sentence,getPhrase("object")); 
 
         return formatSentence(sentence);
@@ -77,7 +77,7 @@ public class SentenceBuilder
       {
         add(sentence, getPhrase("subject"));
         add(sentence, Verb.getNew().conjugate());
-        if(sentence.getLast().getType().equals("verbHelper") || Math.random()>0.1) 
+        if(sentence.getLast().getType().equals("Conjunction") || Math.random()>0.1) 
         {
           add(sentence,getPhrase("object"));
           //ADJECTIVES RELOCATED TO getPhrase METHOD

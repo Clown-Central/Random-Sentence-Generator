@@ -1,3 +1,4 @@
+package WordStuff;
 import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file
@@ -31,24 +32,33 @@ public class Noun extends Word
   */
   public static Noun getNew()
   {
-    if(list.size()==0) readFile();
-      return list.get((int)(Math.random()*list.size()));
-  }//ends getNew() method
+    if(list.size()==0)
+    {
+      readFile();
+    }
+    return list.get((int)(Math.random()*list.size()));
+  }
 
 
 
- 
+
   /* Description: Read file
    * @post: list now contains words from word bank
   */
   private static void readFile(){
-    try{
+    try
+    {
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
-        list.add(new Noun(fileReader.next()));
+        {
+          list.add(new Noun(fileReader.next()));
+        }
       fileReader.close();
-    }catch (IOException e){
+    }
+    catch (IOException e)
+    {
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
   }//ends readFile
-}//ends Noun class
+
+}

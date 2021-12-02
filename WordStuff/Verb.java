@@ -1,3 +1,4 @@
+package WordStuff;
 import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file
@@ -71,29 +72,27 @@ public class Verb extends Word
     fullVerb.add(new Verb(temp));
 
     String str = "";
-    if (this.equals("frown"))
+    //the holy switch statement
+    switch(str/*this*/)
     {
-      str="at";
-    }
-    if (this.equals("speak")||this.equals("respond")||this.equals("listen"))
-    {
-      str="to";
-    }
-    if (this.equals("sleep")||this.equals("walk")||this.equals("run"))
-    {
-      str="on";
-    }
-    if (this.equals("account"))
-    {
-      str="for";
-    }
-    if (this.equals("communicate"))
-    {
-      str="with";
-    }
-    if (this.equals("jump"))
-    {
-      str="over";
+      case "frown": 
+        str="at";
+        break;
+      case "speak": case "respond": case "listen":
+        str="to";
+        break;
+      case "sleep": case "walk": case "run":
+        str="on";
+        break;
+      case "account":
+        str="for";
+        break;
+      case "communicate":
+        str="with";
+        break;
+      case "jump":
+        str="over";
+        break;
     }
     if(!str.equals(""))
     {
@@ -109,9 +108,13 @@ public class Verb extends Word
     try{
       Scanner fileReader = new Scanner(new File(file));
       while(fileReader.hasNext())
+      {
         list.add(new Verb(fileReader.next()));
+      }
       fileReader.close();
-    }catch (IOException e){
+    }
+    catch (IOException e)
+    {
       System.out.println("Something's wrong with the file.");
     }//ends catch file errors
 

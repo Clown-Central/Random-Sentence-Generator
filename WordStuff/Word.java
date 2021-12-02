@@ -1,3 +1,4 @@
+package WordStuff;
 import java.util.*;
 import java.io.IOException;//for file issues
 import java.io.File;//used to read file

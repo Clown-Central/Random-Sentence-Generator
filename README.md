@@ -2,9 +2,12 @@
 This random sentence generator returns a grammatically correct (though often incoherent) sentence between two and six words long. It contains a subject, a verb conjugated in the present tense, and sometimes an object.
 
 The noun wordbank is based on:  https://www.wordexample.com/list/most-common-nouns-english.
+
 The adjective wordbank is based on:
 https://grammar.yourdictionary.com/parts-of-speech/adjectives/list-of-adjective-words.html
-
+ 
+The preposition wordbank is based on:
+https://englishlive.ef.com/blog/language-lab/english-grammar-help-common-prepositions/
 ## ParagraphBuilder Class
 * 
 * 

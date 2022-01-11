@@ -8,6 +8,9 @@ https://grammar.yourdictionary.com/parts-of-speech/adjectives/list-of-adjective-
  
 The preposition wordbank is based on:
 https://englishlive.ef.com/blog/language-lab/english-grammar-help-common-prepositions/
+
+link for website for verb conjugations: https://www.wordreference.com/conj/EnVerbs.aspx?v=jump
+
 ## ParagraphBuilder Class
 * 
 * 
